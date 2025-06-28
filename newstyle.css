@@ -1,0 +1,198 @@
+body {
+    background-color: #121212;
+    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #e0e0e0;
+}
+
+.calculator_container {
+    background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+    padding: 40px;
+    border-radius: 20px;
+    max-width: 900px;
+    width: 90%;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    box-sizing: border-box;
+}
+
+.inputsection, .outputsection {
+    flex: 1;
+    background-color: #2c2c2c;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.inputfield {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0 20px 0;
+    border: 1px solid #444;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    background-color: #3a3a3a;
+    color: #e0e0e0;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.inputfield:focus {
+    outline: none;
+    border-color: #00bcd4;
+    box-shadow: 0 0 10px rgba(0, 188, 212, 0.5);
+}
+
+.tip_percentage {
+    margin-bottom: 20px;
+}
+
+.tip_button_group {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.tipbutton {
+    padding: 15px;
+    background-color: #4a4a4a; 
+    color: #e0e0e0; 
+    border: none;
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+.tipbutton:hover {
+    background-color: #00bcd4;
+    color: #1a1a1a;
+    transform: translateY(-2px);
+}
+
+.tipbutton.active {
+    background-color: #00bcd4;
+    color: #1a1a1a;
+    box-shadow: 0 0 15px rgba(0, 188, 212, 0.7);
+}
+
+label {
+    display: block;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #b0b0b0;
+    margin-bottom: 8px;
+}
+
+.outputsection {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.result {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px dashed #444;
+}
+
+.result:last-of-type {
+    border-bottom: none;
+}
+
+.result-label p {
+    color: #e0e0e0;
+    font-size: 1rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.result-label span {
+    color: #888;
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-top: 4px;
+    display: block;
+}
+
+.result_value span {
+    color: #00bcd4;
+    font-size: 2.8rem;
+    font-weight: 700;
+    text-align: right;
+    display: block;
+    text-shadow: 0 0 8px rgba(0, 188, 212, 0.4);
+}
+
+.resetbutton {
+    width: 80%;
+    padding: 15px;
+    background-color: #00bcd4;
+    color: #1a1a1a;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 20px auto 0;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 188, 212, 0.4);
+}
+
+.resetbutton:hover {
+    background-color: #33d9e0;
+    color: #1a1a1a;
+    transform: translateY(-3px);
+}
+
+.resetbutton:active {
+    background-color: #0097a7;
+    color: #e0e0e0;
+    transform: translateY(0);
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.5); 
+}
+
+@media (max-width: 768px) {
+    .calculator_container {
+        flex-direction: column;
+        padding: 25px;
+        width: 95%;
+        margin: 20px auto;
+    }
+
+    .inputsection, .outputsection {
+        padding: 20px;
+    }
+
+    .tip_button_group {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .result_value span {
+        font-size: 2.2rem;
+    }
+
+    .resetbutton {
+        width: 100%;
+        margin-top: 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    .tip_button_group {
+        grid-template-columns: 1fr;
+    }
+}
