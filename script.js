@@ -10,7 +10,7 @@ const tipamountdisplay = document.getElementById('tipamountdisplay');
 
 const totalamountdisplay = document.getElementById('totalamountdisplay');
 
-const resetbutton = document.querySelector('resetbutton');
+const resetbutton = document.querySelector('.resetbutton');
 
 billinput.addEventListener('input', function (event) {
 
@@ -51,6 +51,10 @@ peopleinput.addEventListener('input', event => {
 
 });
 
+resetbutton.addEventListener('click',()=>{
+    resetcalculator();
+});
+
 function calculatetip() {
 
     const billvaluestore = billinput.value;
@@ -81,47 +85,82 @@ function calculatetip() {
     else {
         actualtip = 0;
     }
+    let isbillvalid = !isNaN(billvalue) && billvalue > 0;
+    let istipvalid = !isNaN(actualtip) && actualtip >= 0;
+    let iscustomtipvalid = !isNaN(customtipvalue) && customtipvalue>=0;
 
     let totaltipamount = 0;
 
 
-    if (!isNaN(billvalue) && billvalue > 0) {
+    if (isbillvalid && istipvalid) {
         totaltipamount = billvalue * actualtip / 100;
     }
 
 
     let totalbill = billvalue + totaltipamount;
+
     let tipperperson = 0;
     let totalperperson = 0;
 
-    if (!isNaN(peoplevalue) && peoplevalue > 0) {
+    let ispeoplevalid = peoplevalue > 0 && !isNaN(peoplevalue) && Number.isInteger(peoplevalue);
+
+    if (isbillvalid && istipvalid && ispeoplevalid) {
         tipperperson = totaltipamount / peoplevalue;
         totalperperson = totalbill / peoplevalue;
     }
     else {
-        tipperperson = totaltipamount;
-        totalperperson = totalbill;
+        tipperperson = 0;
+        totalperperson = 0;
+
     }
 
     const formattip = tipperperson.toFixed(2);
     const formattotal = totalperperson.toFixed(2);
 
-    if (isNaN(totalperperson) ){
-      formattotal='0';
+    if (isNaN(totalperperson)) {
+        formattotal = '0';
     }
 
 
 
-    tipamountdisplay.textContent = `$${formattip}`;
-    totalamountdisplay.textContent = `$${formattotal}`;
+    tipamountdisplay.textContent = `₹${formattip}`;
+    totalamountdisplay.textContent = `₹${formattotal}`;
 
+if(billinput){
+    billinput.classList.toggle('error',!isbillvalid);
+}
+if(peopleinput){
+    peopleinput.classList.toggle('error',!ispeoplevalid);
 
+}
+if(customtip){
+    customtip.classList.toggle('error',!iscustomtipvalid);
+
+}
 
 
 
 }
 
-document.addEventListener('DOMContentLoaded', calculateTip);
+document.addEventListener('DOMContentLoaded', calculatetip);
 
+function resetcalculator(){
 
+        billinput.value='';
+   
+        customtip.value='';
+    
+        tipbuttons.forEach(button=>{
+            button.classList.remove('active');
+        })
+   
+        peopleinput.value='';
+  
+        tipamountdisplay.textContent='₹0';
+  
+        totalamountdisplay.textContent='₹0';
+  
+    billinput.focus();
+
+}
 
