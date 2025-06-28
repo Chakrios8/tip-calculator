@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Tip Calculator</title>
+    <link rel="stylesheet" href="newstyle2.css">
+
+</head>
+
+<body>
+    <div class="calculator_container">
+
+        <div class="inputsection">
+
+            <div class="form-control">
+                <label for="bill">Bill</label>
+                <input type="number" id="bill" class="inputfield" placeholder="0" min="0">
+            </div>
+
+            <div class="tip_percentage">
+                <label>Select Tip %</label>
+
+                <div class="tip_button_group">
+                    <button type="button" class="tipbutton" value="5">5%</button>
+                    <button type="button" class="tipbutton" value="10">10%</button>
+                    <button type="button" class="tipbutton" value="15">15%</button>
+                    <button type="button" class="tipbutton" value="20">20%</button>
+                    <button type="button" class="tipbutton" value="25">25%</button>
+                    <button type="button" class="tipbutton" value="30">30%</button>
+                    <input type="number" id="customtip" class="inputfield" placeholder="0" min="0">
+
+                </div>
+
+
+            </div>
+
+            <div class="people_container">
+                <label for="people">No. of people</label>
+
+                <input type="number" id="people" class="inputfield" placeholder="0" min="1">
+
+            </div>
+
+
+        </div>
+
+
+
+        <div class="outputsection">
+
+            <div class="result">
+                <div class="result-label">
+                    <p>Tip Amount</p>
+                    <span>/ Person</span>
+                </div>
+                <div class="result_value">
+                    <span id="tipamountdisplay">0</span>
+
+                </div>
+            </div>
+
+                <div class="result">
+                    <div class="result-label">
+                        <p>Total</p>
+                        <span>/ Person</span>
+                    </div>
+                    <div class="result_value">
+                        <span id="totalamountdisplay">0</span>
+                    </div>
+                </div>
+
+           
+
+            <button type="button" class="resetbutton">reset</button>
+        </div>
+
+    </div>
+
+    <script src="script.js" defer></script>
+</body>
+
+</html>
