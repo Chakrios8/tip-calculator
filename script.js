@@ -155,20 +155,13 @@ function resetcalculator(){
         })
    
         peopleinput.value=1;
+        peopleinput.classList.remove('error');
   
         tipamountdisplay.textContent='₹0';
   
         totalamountdisplay.textContent='₹0';
-
-        billinput.classList.remove('error');
-        peopleinput.classList.remove('error');     
-        customtip.classList.remove('error');
-
-}
   
     billinput.focus();
 
 }
-
-
 
