@@ -85,7 +85,7 @@ function calculatetip() {
     else {
         actualtip = 0;
     }
-    let isbillvalid = !isNaN(billvalue) && billvalue > 0;
+    let isbillvalid = !isNaN(billvalue) && billvalue >= 0;
     let istipvalid = !isNaN(actualtip) && actualtip >= 0;
     let iscustomtipvalid = !isNaN(customtipvalue) && customtipvalue>=0;
 
@@ -164,4 +164,5 @@ function resetcalculator(){
     billinput.focus();
 
 }
+
 
