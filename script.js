@@ -154,7 +154,7 @@ function resetcalculator(){
             button.classList.remove('active');
         })
    
-        peopleinput.value='';
+        peopleinput.value=1;
   
         tipamountdisplay.textContent='₹0';
   
@@ -169,5 +169,6 @@ function resetcalculator(){
     billinput.focus();
 
 }
+
 
 
