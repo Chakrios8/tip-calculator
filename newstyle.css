@@ -49,7 +49,7 @@ body {
     border-color: #00bcd4;
     box-shadow: 0 0 10px rgba(0, 188, 212, 0.5);
 }
-.inputfield input.error{
+#people.error{
     border-color: #e95b38;
     border-width: 2px;
 }
@@ -200,3 +200,4 @@ label {
         grid-template-columns: 1fr;
     }
 }
+
