@@ -159,8 +159,15 @@ function resetcalculator(){
         tipamountdisplay.textContent='₹0';
   
         totalamountdisplay.textContent='₹0';
+
+        billinput.classList.remove('error');
+        peopleinput.classList.remove('error');     
+        customtip.classList.remove('error');
+
+}
   
     billinput.focus();
 
 }
+
 
